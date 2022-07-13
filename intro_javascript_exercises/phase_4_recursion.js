@@ -5,7 +5,7 @@ function range(start, end) {
 
 function sumRec(arr) {
     if (arr.length === 1) { return arr[0]; }
-    return arr[0] + sumRec(arr.slice(1, arr.length));
+    return arr[0] + sumRec(arr.slice(1));
 }
 
 function exponent1(base, exp) {
@@ -41,7 +41,7 @@ function bsearch(arr, target) {
     let midIdx = Math.floor(arr.length / 2);
     if (arr[midIdx] === target) { return midIdx; }
     if (target > arr[midIdx]) {
-        return bsearch(arr.slice(midIdx + 1, arr.length), target) + midIdx + 1;
+        return bsearch(arr.slice(midIdx + 1), target) + midIdx + 1;
     } else {
         return bsearch(arr.slice(0, midIdx), target);
     }
@@ -51,7 +51,7 @@ function mergeSort(arr) {
     if (arr.length === 1) { return arr; }
     let mid = Math.floor(arr.length / 2);
     let left = mergeSort(arr.slice(0, mid));
-    let right = mergeSort(arr.slice(mid, arr.length));
+    let right = mergeSort(arr.slice(mid));
     return merge(left, right);
 }
 
